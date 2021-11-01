@@ -10,10 +10,13 @@ html {
 
 body {
   margin: 0;
-  padding: 30px;
+  padding: 20px 20px 20px 0;
   font-family: 'Alice', serif;
   font-size: 18px;
   line-height: 1.5;
+  max-width: 1500px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 h1,
@@ -76,31 +79,33 @@ blockquote {
 
 .blog {
   display: grid;
-  grid-template-columns: 1fr 4fr 2fr;
-  column-gap: 40px;
+  grid-template-columns: 0 4fr 1fr;
+  column-gap: 20px;
 }
 
-h1 {
-  font-size: 90px;
-  margin-bottom: 0.5em;
-}
-
-h2 {
-  font-size: 60px;
-  margin-top: 0.5em;
+p {
+  grid-column: 2 / 3;
 }
 
 header,
 footer,
-h2,
-p {
-  grid-column: 2 / 3;
+h2 {
+  grid-column: 1 / -1;
+  margin: 0 0 0 20px;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+h2 {
+  font-size: 34px;
 }
 
 figure,
 blockquote {
   grid-column: 1 / -1;
-  margin: 30px 0;
+  margin: 30px 0 30px 20px;
 }
 
 .tip {
@@ -123,12 +128,7 @@ blockquote {
   width: 100%;
 }
 
-.tip-vlevo {
-  grid-column: 1 / 2;
-  border-right: 2px solid var(--zluta);
-  text-align: right;
-}
-
+.tip-vlevo,
 .tip-vpravo {
   grid-column: 3 / -1;
   border-left: 2px solid var(--zluta);
@@ -146,7 +146,7 @@ figcaption {
 blockquote {
   text-align: center;
   color: var(--seda);
-  font-size: 36px;
+  font-size: 18px;
 }
 
 blockquote::before,
@@ -173,4 +173,51 @@ footer,
 footer a {
   color: var(--seda);
   font-size: 14px;
+}
+
+@media screen and (min-width: 700px) {
+  body {
+    padding: 30px;
+  }
+
+  .blog {
+    display: grid;
+    grid-template-columns: 1fr 4fr 2fr;
+    column-gap: 40px;
+  }
+
+  h1 {
+    font-size: 90px;
+    margin-bottom: 0.5em;
+  }
+
+  h2 {
+    font-size: 60px;
+    margin-top: 0.5em;
+  }
+
+  header,
+  footer,
+  h2,
+  p {
+    grid-column: 2 / 3;
+    margin: 0;
+  }
+
+  .tip-vlevo {
+    grid-column: 1 / 2;
+    border-left: none;
+    border-right: 2px solid var(--zluta);
+    text-align: right;
+  }
+
+  figure,
+  blockquote {
+    grid-column: 1 / -1;
+    margin: 30px 0;
+  }
+
+  blockquote {
+    font-size: 36px;
+  }
 }
