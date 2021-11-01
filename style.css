@@ -1,38 +1,46 @@
 /* nejsme vcerejsi, pouzivame moderni box model */
-html { box-sizing: border-box; }
-*, :after, :before { box-sizing: inherit; }
-
-
-body {
-	margin: 0;
-	padding: 30px;
-	font-family:  'Alice', serif;
-	font-size: 18px;
-	line-height: 1.5;
+html {
+  box-sizing: border-box;
+}
+*,
+:after,
+:before {
+  box-sizing: inherit;
 }
 
-h1, h2, h3 {
-	font-family: 'Kaushan Script', cursive;
-	font-weight: normal;
-	margin: 0;
+body {
+  margin: 0;
+  padding: 30px;
+  font-family: 'Alice', serif;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Kaushan Script', cursive;
+  font-weight: normal;
+  margin: 0;
+  color: var(--zelena);
 }
 
 blockquote {
-	font-family: 'Kaushan Script', cursive;
+  font-family: 'Kaushan Script', cursive;
 }
 
 /* --------------------------------------------------- */
 
 /* barvy */
 :root {
-	--svetla: #edf3f5;
-	--seda: #b2bec3;
-	--tmava: #636e72;
-	--oranzova: #ee5a24;
-	--cervena: #ea2027;
-	--zluta: #f79f1f;
-	--zelena: #a3cb38;
-	--limetka: #c4e538;
+  --svetla: #edf3f5;
+  --seda: #b2bec3;
+  --tmava: #636e72;
+  --oranzova: #ee5a24;
+  --cervena: #ea2027;
+  --zluta: #f79f1f;
+  --zelena: #a3cb38;
+  --limetka: #c4e538;
 }
 
 /*
@@ -66,3 +74,103 @@ blockquote {
 	- https://www.smashingmagazine.com/2017/04/start-using-css-custom-properties/
 */
 
+.blog {
+  display: grid;
+  grid-template-columns: 1fr 4fr 2fr;
+  column-gap: 40px;
+}
+
+h1 {
+  font-size: 90px;
+  margin-bottom: 0.5em;
+}
+
+h2 {
+  font-size: 60px;
+  margin-top: 0.5em;
+}
+
+header,
+footer,
+h2,
+p {
+  grid-column: 2 / 3;
+}
+
+figure,
+blockquote {
+  grid-column: 1 / -1;
+  margin: 30px 0;
+}
+
+.tip {
+  font-size: 16px;
+  align-self: start;
+  margin: 1em 0 0 0;
+  padding: 1em;
+  background-color: var(--svetla);
+  color: var(--tmava);
+}
+
+.tip a {
+  color: var(--oranzova);
+}
+
+.tip p {
+  margin: 0;
+}
+.tip img {
+  width: 100%;
+}
+
+.tip-vlevo {
+  grid-column: 1 / 2;
+  border-right: 2px solid var(--zluta);
+  text-align: right;
+}
+
+.tip-vpravo {
+  grid-column: 3 / -1;
+  border-left: 2px solid var(--zluta);
+}
+
+figure img {
+  width: 100%;
+}
+
+.meta,
+figcaption {
+  color: var(--seda);
+}
+
+blockquote {
+  text-align: center;
+  color: var(--seda);
+  font-size: 36px;
+}
+
+blockquote::before,
+blockquote::after {
+  content: '';
+  display: block;
+  width: 100px;
+  height: 2px;
+  background-color: var(--limetka);
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+blockquote::before {
+  margin-bottom: 0.5em;
+}
+
+blockquote::after {
+  margin-top: 0.5em;
+}
+
+footer,
+footer a {
+  color: var(--seda);
+  font-size: 14px;
+}
